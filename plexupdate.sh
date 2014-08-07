@@ -1,14 +1,19 @@
 #!/bin/bash
 
-UPVER=$(curl https://plex.tv/downloads?channel=plexpass 2>&1 | grep -oPm 1 "(?<=Version )[0-9\.]+[-\w]+(?=)")
+UPVER=$(curl -s http://bubster.org/plex/plexupdateversion.php)
 DIRECTORY='/root/plexupdate'
 FILE='PlexMediaServer-'$UPVER'-freebsd-amd64.tar.bz2'
 
 echo 'New Version = ' $UPVER
 
+if [ -z "$UPVER" ]; then
+  echo 'Could not get new version.'
+  exit 1
+fi
+
 if [ ! -d "$DIRECTORY" ]; then
   # Control will enter here if $DIRECTORY doesn't exist.
-  mkdir $DIRECTORY
+  mkdir -p $DIRECTORY
 fi
 
 
