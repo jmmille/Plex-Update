@@ -12,13 +12,11 @@ if [ -z "$UPVER" ]; then
 fi
 
 if [ ! -d "$DIRECTORY" ]; then
-  # Control will enter here if $DIRECTORY doesn't exist.
   mkdir -p $DIRECTORY
 fi
 
 
 if [ -d "$DIRECTORY" ]; then
-  # Control will enter here if $DIRECTORY exists.
   cd $DIRECTORY
 
   if [ ! -f "$FILE" ]; then
