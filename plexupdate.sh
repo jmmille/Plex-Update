@@ -1,6 +1,6 @@
 #!/bin/bash
 
-UPVER=$(curl -s http://bubster.org/plex/plexupdateversion.php)
+UPVER=$(curl -Ls http://goo.gl/gZzdwt)
 DIRECTORY='/root/plexupdate'
 FILE='PlexMediaServer-'$UPVER'-freebsd-amd64.tar.bz2'
 
